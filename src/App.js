@@ -1,4 +1,6 @@
 import "./App.css";
+import "./Weather";
+import Weather from "./Weather";
 
 function App() {
   return (
@@ -6,6 +8,7 @@ function App() {
       <div className="container">
         <h1>Hello World</h1>
         <p>Starting with ReactJS</p>
+        <Weather />
       </div>
     </div>
   );
