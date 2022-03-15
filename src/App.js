@@ -6,10 +6,14 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Hello World</h1>
-        <p>Starting with ReactJS</p>
         <Weather />
       </div>
+      {/* <footer>
+        <a href="https://github.com/BSalcido/weather-app-wk4">
+          Open-source code
+        </a>{" "}
+        by Brisa Salcido
+      </footer> */}
     </div>
   );
 }
