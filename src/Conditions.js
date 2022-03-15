@@ -9,12 +9,12 @@ function Conditions(props) {
   } else {
     return (
       <div className="Conditions">
-        <div className="city">{props.weather.city}</div>
+        <h1 className="city">{props.weather.city}</h1>
         <FormattedDate timeStamp={props.weather.date} />
         <img src={props.icon} alt="icon" />
-        <div className="description text-capitalize">
+        <h3 className="description text-capitalize">
           {props.weather.description}
-        </div>
+        </h3>
         <Temperature temperature={props.weather.temperature} />
         <OtherConditions
           humidity={props.weather.humidity}

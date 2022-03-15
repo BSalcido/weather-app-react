@@ -4,11 +4,12 @@ import axios from "axios";
 
 function Weather() {
   const [searchValue, setSearchValue] = useState("");
-  const [weather, setWeather] = useState(null);
+  const [weather, setWeather] = useState({ ready: false });
   const [icon, setIcon] = useState(null);
 
   function showTemperature(response) {
     setWeather({
+      ready: true,
       city: response.data.name,
       date: response.data.dt,
       temperature: Math.round(response.data.main.temp),
@@ -19,6 +20,7 @@ function Weather() {
     setIcon(
       `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+    console.log(response.data);
   }
 
   function callApi(city) {
@@ -37,27 +39,36 @@ function Weather() {
     setSearchValue(event.target.value);
   }
 
-  return (
-    <div className="search-content">
-      <form onSubmit={handleSubmit}>
-        <div className="row p-4">
-          <div className="col-10">
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Enter a city..."
-              value={searchValue}
-              onChange={searchCity}
-            />
+  if (weather.ready) {
+    return (
+      <div className="search-content">
+        <form onSubmit={handleSubmit}>
+          <div className="row p-4">
+            <div className="col-10">
+              <input
+                className="form-control"
+                type="search"
+                placeholder="Enter a city..."
+                value={searchValue}
+                onChange={searchCity}
+              />
+            </div>
+            <div className="col-2">
+              <input
+                className="btn btn-secondary"
+                type="submit"
+                value="Search"
+              />
+            </div>{" "}
           </div>
-          <div className="col-2">
-            <input className="btn btn-secondary" type="submit" value="Search" />
-          </div>{" "}
-        </div>
-      </form>
-      <Conditions weather={weather} icon={icon} />
-    </div>
-  );
+        </form>
+        <Conditions weather={weather} icon={icon} />
+      </div>
+    );
+  } else {
+    callApi("Paris");
+    return "Loading...";
+  }
 }
 
 export default Weather;
