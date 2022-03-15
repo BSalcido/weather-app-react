@@ -5,21 +5,18 @@ import axios from "axios";
 function Weather() {
   const [searchValue, setSearchValue] = useState("");
   const [weather, setWeather] = useState({ ready: false });
-  const [icon, setIcon] = useState(null);
 
   function showTemperature(response) {
     setWeather({
       ready: true,
       city: response.data.name,
+      icon: response.data.weather[0].icon,
       date: response.data.dt,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
     });
-    setIcon(
-      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
     console.log(response.data);
   }
 
@@ -62,7 +59,7 @@ function Weather() {
             </div>{" "}
           </div>
         </form>
-        <Conditions weather={weather} icon={icon} />
+        <Conditions weather={weather} />
       </div>
     );
   } else {
