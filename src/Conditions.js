@@ -1,4 +1,5 @@
 import React from "react";
+import "./Conditions.css";
 import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
 import OtherConditions from "./OtherConditions";
@@ -10,17 +11,37 @@ function Conditions(props) {
   } else {
     return (
       <div className="Conditions">
-        <h1 className="city">{props.weather.city}</h1>
-        <FormattedDate timeStamp={props.weather.date} />
-        <WeatherIcon code={props.weather.icon} />
-        <h3 className="description text-capitalize">
-          {props.weather.description}
-        </h3>
-        <Temperature temperature={props.weather.temperature} />
-        <OtherConditions
-          humidity={props.weather.humidity}
-          wind={props.weather.wind}
-        />
+        <div className="row">
+          <div className="col">
+            <h1 className="city">{props.weather.city}</h1>
+          </div>
+          <div className="col">
+            {" "}
+            <FormattedDate timeStamp={props.weather.date} />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <div className="row">
+              <div className="col">
+                <WeatherIcon code={props.weather.icon} />
+              </div>
+              <div className="col">
+                {" "}
+                <Temperature temperature={props.weather.temperature} />
+              </div>
+            </div>
+          </div>
+          <div className="col">
+            <div className="description text-capitalize">
+              {props.weather.description}
+            </div>
+            <OtherConditions
+              humidity={props.weather.humidity}
+              wind={props.weather.wind}
+            />
+          </div>
+        </div>
       </div>
     );
   }

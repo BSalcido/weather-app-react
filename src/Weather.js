@@ -5,6 +5,7 @@ import axios from "axios";
 function Weather() {
   const [searchValue, setSearchValue] = useState("");
   const [weather, setWeather] = useState({ ready: false });
+  const [units, setUnits] = useState("metric");
 
   function showTemperature(response) {
     setWeather({
@@ -22,7 +23,8 @@ function Weather() {
 
   function callApi(city) {
     const key = "782c11d8eafac460882fd8ac43f6aacd";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
+    console.log(url);
     axios.get(url).then(showTemperature);
   }
 

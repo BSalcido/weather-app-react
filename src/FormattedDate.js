@@ -36,7 +36,7 @@ function FormattedDate(props) {
   let timeString = timeInformation.toTimeString();
   let onlyHour = timeString.slice(0, 5);
   return (
-    <div>
+    <div className="timeInformation">
       <div className="dateToShow">
         {day} {date}/{month}
       </div>
