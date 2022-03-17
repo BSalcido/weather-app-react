@@ -24,12 +24,14 @@ function WeatherIcon(props) {
   };
 
   return (
-    <ReactAnimatedWeather
-      icon={iconsMapping[props.code]}
-      color={"goldenrod"}
-      size={51}
-      animate={true}
-    />
+    <div className="weather-icon">
+      <ReactAnimatedWeather
+        icon={iconsMapping[props.code]}
+        color={"#3C8DAD"}
+        size={150}
+        animate={true}
+      />
+    </div>
   );
 }
 

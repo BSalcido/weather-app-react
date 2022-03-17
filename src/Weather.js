@@ -14,6 +14,7 @@ function Weather() {
       icon: response.data.weather[0].icon,
       date: response.data.dt,
       temperature: Math.round(response.data.main.temp),
+      feels_like: Math.round(response.data.main.feels_like),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),

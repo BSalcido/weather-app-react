@@ -11,34 +11,34 @@ function Conditions(props) {
   } else {
     return (
       <div className="Conditions">
-        <div className="row">
-          <div className="col">
-            <h1 className="city">{props.weather.city}</h1>
-          </div>
-          <div className="col">
-            {" "}
-            <FormattedDate timeStamp={props.weather.date} />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col">
-            <div className="row">
-              <div className="col">
-                <WeatherIcon code={props.weather.icon} />
-              </div>
-              <div className="col">
-                {" "}
-                <Temperature temperature={props.weather.temperature} />
-              </div>
-            </div>
-          </div>
-          <div className="col">
-            <div className="description text-capitalize">
+        <div className="row align-items-center">
+          <div className="col-5">
+            <h1 className="conditions__city">{props.weather.city}</h1>{" "}
+            <div className="conditions__description text-capitalize">
               {props.weather.description}
             </div>
+            <FormattedDate timeStamp={props.weather.date} />
+          </div>
+
+          <div className="col-4">
+            <div className="row justify-content-center align-items-center">
+              <div className="col">
+                <div className="float-center">
+                  <WeatherIcon code={props.weather.icon} />
+                </div>
+              </div>
+              <div className="col">
+                <div>
+                  <Temperature temperature={props.weather.temperature} />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-3">
             <OtherConditions
               humidity={props.weather.humidity}
               wind={props.weather.wind}
+              feels_like={props.weather.feels_like}
             />
           </div>
         </div>

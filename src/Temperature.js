@@ -1,10 +1,11 @@
 import React from "react";
+import "./Temperature.css";
 
 function Temperature(props) {
   return (
-    <div className="temperatureToShow">
-      <span className="degrees">{props.temperature}</span>
-      <span className="units">°C</span>
+    <div className="temperature">
+      <span className="temperature__degrees">{props.temperature}</span>
+      <span className="temperature__units">°C</span>
     </div>
   );
 }

@@ -8,12 +8,12 @@ function App() {
       <div className="container">
         <Weather />
       </div>
-      {/* <footer>
+      <footer>
         <a href="https://github.com/BSalcido/weather-app-wk4">
           Open-source code
         </a>{" "}
         by Brisa Salcido
-      </footer> */}
+      </footer>
     </div>
   );
 }

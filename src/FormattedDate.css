@@ -1,0 +1,10 @@
+.formatted-date__today {
+  font-size: 15px;
+  color: #3c8dad;
+}
+
+.formatted-date__time {
+  padding-top: 10px;
+  font-size: 13px;
+  color: #000000b0;
+}

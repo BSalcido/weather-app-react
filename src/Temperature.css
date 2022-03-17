@@ -1,0 +1,9 @@
+.temperature__degrees {
+  font-size: 100px;
+  color: #f5a962;
+}
+
+.temperature__units {
+  font-size: 40px;
+  color: #f5a962;
+}

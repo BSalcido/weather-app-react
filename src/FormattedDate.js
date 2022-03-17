@@ -1,4 +1,5 @@
 import React from "react";
+import "./FormattedDate.css";
 
 function FormattedDate(props) {
   let timeInformation = new Date(props.timeStamp * 1000);
@@ -36,11 +37,11 @@ function FormattedDate(props) {
   let timeString = timeInformation.toTimeString();
   let onlyHour = timeString.slice(0, 5);
   return (
-    <div className="timeInformation">
-      <div className="dateToShow">
+    <div className="formatted-date">
+      <div className="formatted-date__today">
         {day} {date}/{month}
       </div>
-      <div className="timeUpdated">Last updated: {onlyHour}</div>
+      <div className="formatted-date__time">Last updated: {onlyHour}</div>
     </div>
   );
 }
