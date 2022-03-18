@@ -7,6 +7,14 @@ function Weather() {
   const [weather, setWeather] = useState({ ready: false });
   const [units, setUnits] = useState("metric");
 
+  console.log(`units in Weather: ${units}`);
+
+  function toggleUnits() {
+    let newUnits = units === "metric" ? "imperial" : "metric";
+    setUnits(newUnits);
+    callApi(weather.city, newUnits);
+  }
+
   function showTemperature(response) {
     setWeather({
       ready: true,
@@ -22,9 +30,11 @@ function Weather() {
     console.log(response.data);
   }
 
-  function callApi(city) {
+  function callApi(city, newUnits) {
     const key = "782c11d8eafac460882fd8ac43f6aacd";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${units}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${
+      newUnits ? newUnits : units
+    }`;
     console.log(url);
     axios.get(url).then(showTemperature);
   }
@@ -62,7 +72,7 @@ function Weather() {
             </div>{" "}
           </div>
         </form>
-        <Conditions weather={weather} />
+        <Conditions weather={weather} units={units} toggleUnits={toggleUnits} />
       </div>
     );
   } else {
