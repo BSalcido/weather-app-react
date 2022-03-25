@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Weather.css";
 import Conditions from "./Conditions";
 import axios from "axios";
 
@@ -51,10 +52,10 @@ function Weather() {
 
   if (weather.ready) {
     return (
-      <div className="search-content">
+      <div className="Weather">
         <form onSubmit={handleSubmit}>
           <div className="row p-4">
-            <div className="col-10">
+            <div className="col-11">
               <input
                 className="form-control"
                 type="search"
@@ -63,13 +64,13 @@ function Weather() {
                 onChange={searchCity}
               />
             </div>
-            <div className="col-2">
+            <div className="col-1">
               <input
                 className="btn btn-secondary"
                 type="submit"
                 value="Search"
               />
-            </div>{" "}
+            </div>
           </div>
         </form>
         <Conditions weather={weather} units={units} toggleUnits={toggleUnits} />

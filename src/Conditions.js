@@ -11,34 +11,27 @@ function Conditions(props) {
   } else {
     return (
       <div className="Conditions">
-        <h1 className="conditions__city">{props.weather.city}</h1>
-        <div className="row d-flex justify-content-center align-items-center">
-          <div className="col-2">
+        <div className="row">
+          <div className="col">
+            <h1 className="conditions__city">{props.weather.city}</h1>
+
             <div className="conditions__description text-capitalize">
               {props.weather.description}
             </div>
+
             <FormattedDate timeStamp={props.weather.date} />
           </div>
-
-          <div className="col-7">
-            <div className="row d-flex justify-content-center align-items-center">
-              <div className="col">
-                <div className="float-end">
-                  <WeatherIcon code={props.weather.icon} />
-                </div>
-              </div>
-              <div className="col">
-                <div className="float-start">
-                  <Temperature
-                    temperature={props.weather.temperature}
-                    units={props.units}
-                    toggleUnits={props.toggleUnits}
-                  />
-                </div>
-              </div>
+          <div className="col text-end">
+            <div className="d-inline-flex">
+              <WeatherIcon code={props.weather.icon} />
             </div>
-          </div>
-          <div className="col-3">
+            <div className="d-inline-flex">
+              <Temperature
+                temperature={props.weather.temperature}
+                units={props.units}
+                toggleUnits={props.toggleUnits}
+              />
+            </div>
             <OtherConditions
               humidity={props.weather.humidity}
               wind={props.weather.wind}

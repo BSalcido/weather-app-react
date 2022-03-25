@@ -13,7 +13,7 @@ function Temperature(props) {
   let currentUnit;
   if (props.units === "metric") {
     currentUnit = (
-      <span className="temperature__units ps-2">
+      <span className="temperature__units ps-1">
         °C |
         <a href="/" onClick={handleUnitChange} className="temperature__link">
           °F
