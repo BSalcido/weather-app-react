@@ -2,11 +2,8 @@ import React from "react";
 import "./Temperature.css";
 
 function Temperature(props) {
-  // console.log(`units in Temperature: ${props.units}`);
-
   function handleUnitChange(event) {
     event.preventDefault();
-    console.log(`units in handleUnitChange: ${props.units}`);
     props.toggleUnits();
   }
 

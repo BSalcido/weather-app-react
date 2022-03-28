@@ -4,6 +4,7 @@ import FormattedDate from "./FormattedDate";
 import Temperature from "./Temperature";
 import OtherConditions from "./OtherConditions";
 import WeatherIcon from "./WeatherIcon";
+import WeeklyForecast from "./WeeklyForecast";
 
 function Conditions(props) {
   if (props.weather === null) {
@@ -40,6 +41,7 @@ function Conditions(props) {
             <FormattedDate timeStamp={props.weather.date} />
           </div>
         </div>
+        <WeeklyForecast coordinates={props.weather.coordinates} />
       </div>
     );
   }

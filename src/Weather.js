@@ -8,7 +8,14 @@ function Weather() {
   const [weather, setWeather] = useState({ ready: false });
   const [units, setUnits] = useState("metric");
 
-  console.log(`units in Weather: ${units}`);
+  function callApi(city, newUnits) {
+    const key = "563dcfe0fb8bae48dd42b4a13d5480f2";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${
+      newUnits ? newUnits : units
+    }`;
+    axios.get(url).then(showTemperature);
+    console.log(url);
+  }
 
   function toggleUnits() {
     let newUnits = units === "metric" ? "imperial" : "metric";
@@ -27,17 +34,8 @@ function Weather() {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
+      coordinates: response.data.coord,
     });
-    console.log(response.data);
-  }
-
-  function callApi(city, newUnits) {
-    const key = "782c11d8eafac460882fd8ac43f6aacd";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${
-      newUnits ? newUnits : units
-    }`;
-    console.log(url);
-    axios.get(url).then(showTemperature);
   }
 
   function handleSubmit(event) {
