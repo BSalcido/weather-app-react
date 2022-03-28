@@ -15,6 +15,11 @@ body {
   margin-top: 50px;
 }
 
-.App footer a{
-  color: #C1A3A3;
+.App footer a {
+  color: #c1a3a3;
+  text-decoration: none;
+}
+
+.App footer a:hover {
+  color: #f3c5c5;
 }
