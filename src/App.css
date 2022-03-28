@@ -3,14 +3,18 @@
 html,
 body {
   font-family: "Oxygen", sans-serif !important;
-  background-color: #f1dd9e;
+  background-color: #efdad7af;
 }
 
 .App {
-  background-color: #f1dd9e;
+  background-color: #efdad7af;
 }
 
 .App footer {
   text-align: center;
   margin-top: 50px;
+}
+
+.App footer a{
+  color: #C1A3A3;
 }

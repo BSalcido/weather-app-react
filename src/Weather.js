@@ -54,8 +54,8 @@ function Weather() {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
-          <div className="row p-4">
-            <div className="col-11">
+          <div className="row py-4">
+            <div className="col-10">
               <input
                 className="form-control"
                 type="search"
@@ -64,9 +64,9 @@ function Weather() {
                 onChange={searchCity}
               />
             </div>
-            <div className="col-1">
+            <div className="col-2 d-flex justify-content-center">
               <input
-                className="btn btn-secondary"
+                className="weather__search-btn"
                 type="submit"
                 value="Search"
               />

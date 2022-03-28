@@ -1,3 +1,18 @@
 .Weather {
-  margin: 15px;
+  margin: auto 120px;
+}
+
+.weather__search-btn {
+  border-radius: 9px;
+  color: #ffffff;
+  font-size: 16px;
+  background: #c1a3a3;
+  padding: 0 10px;
+  border: solid #886f6f 1px;
+  transition: all 0.2s ease-in-out;
+}
+
+.weather__search-btn:hover {
+  background-color: #886f6f;
+  border: solid #c1a3a3 1px;
 }

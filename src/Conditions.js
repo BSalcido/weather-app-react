@@ -13,15 +13,6 @@ function Conditions(props) {
       <div className="Conditions">
         <div className="row">
           <div className="col">
-            <h1 className="conditions__city">{props.weather.city}</h1>
-
-            <div className="conditions__description text-capitalize">
-              {props.weather.description}
-            </div>
-
-            <FormattedDate timeStamp={props.weather.date} />
-          </div>
-          <div className="col text-end">
             <div className="d-inline-flex">
               <WeatherIcon code={props.weather.icon} />
             </div>
@@ -38,6 +29,15 @@ function Conditions(props) {
               feels_like={props.weather.feels_like}
               units={props.units}
             />
+          </div>
+          <div className="col text-end">
+            <h1 className="conditions__city">{props.weather.city}</h1>
+
+            <div className="conditions__description text-capitalize">
+              {props.weather.description}
+            </div>
+
+            <FormattedDate timeStamp={props.weather.date} />
           </div>
         </div>
       </div>
