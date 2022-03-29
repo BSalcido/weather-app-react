@@ -1,11 +1,11 @@
 .dayForecast__day {
   color: #c1a3a3;
-  font-size: 16px;
+  font-size: 18px;
   margin: 5px auto;
 }
 
 .dayForecast__temperature {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .dayForecast__temperature span {
@@ -18,4 +18,19 @@
 
 .dayForecast__min {
   color: #ebc9c9;
+}
+
+@media (max-width: 600px) {
+  .dayForecast__day {
+    font-size: 14px;
+    margin: 3px auto;
+  }
+
+  .dayForecast__temperature {
+    font-size: 16px;
+  }
+
+  .dayForecast__temperature span {
+    padding: 3px;
+  }
 }

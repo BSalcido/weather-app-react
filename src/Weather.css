@@ -1,5 +1,5 @@
 .Weather {
-  margin: auto 120px;
+  margin: auto 220px;
 }
 
 .weather__search-btn {
@@ -15,4 +15,16 @@
 .weather__search-btn:hover {
   background-color: #886f6f;
   border: solid #c1a3a3 1px;
+}
+
+@media (max-width: 1000px) {
+  .Weather {
+    margin: auto 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Weather {
+    margin: auto 20px;
+  }
 }

@@ -41,7 +41,10 @@ function Conditions(props) {
             <FormattedDate timeStamp={props.weather.date} />
           </div>
         </div>
-        <WeeklyForecast coordinates={props.weather.coordinates} />
+        <WeeklyForecast
+          coordinates={props.weather.coordinates}
+          units={props.units}
+        />
       </div>
     );
   }

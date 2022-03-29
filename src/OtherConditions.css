@@ -3,3 +3,9 @@
   color: #707579;
   margin-top: 5px;
 }
+
+@media (max-width: 600px) {
+  .other-conditions {
+    font-size: 12px;
+  }
+}

@@ -18,3 +18,13 @@
 .temperature__link:hover {
   color: #f3c5c5;
 }
+
+@media (max-width: 600px) {
+  .temperature__degrees {
+    font-size: 40px;
+  }
+
+  .temperature__units {
+    font-size: 12px;
+  }
+}

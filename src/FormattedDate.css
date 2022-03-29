@@ -10,3 +10,14 @@
   padding-top: 10px;
   font-size: 13px;
 }
+
+@media (max-width: 600px) {
+  .formatted-date__today {
+  font-size: 13px;
+}
+
+.formatted-date__time {
+  padding-top: 8px;
+  font-size: 10px;
+}
+}

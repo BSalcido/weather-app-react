@@ -14,7 +14,6 @@ function Weather() {
       newUnits ? newUnits : units
     }`;
     axios.get(url).then(showTemperature);
-    console.log(url);
   }
 
   function toggleUnits() {

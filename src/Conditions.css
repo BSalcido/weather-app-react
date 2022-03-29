@@ -1,5 +1,5 @@
 .Conditions {
-  padding: 30px;
+  padding: 50px;
   margin-top: 20px;
   border-radius: 9px;
   border: 1px solid #c1a3a344;
@@ -16,4 +16,14 @@
 .conditions__description {
   color: #707579;
   font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  .conditions__city {
+    font-size: 25px;
+  }
+
+  .conditions__description {
+    font-size: 15px;
+  }
 }
