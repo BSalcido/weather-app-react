@@ -17,7 +17,7 @@
   border: solid #c1a3a3 1px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .Weather {
     margin: auto 40px;
   }

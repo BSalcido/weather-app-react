@@ -12,7 +12,9 @@ body {
 
 .App footer {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 80px;
+  font-size: 15px;
+  padding: 5px;
 }
 
 .App footer a {
@@ -22,4 +24,12 @@ body {
 
 .App footer a:hover {
   color: #f3c5c5;
+}
+
+@media (max-width: 600px) {
+  .App footer {
+    margin-top: 30px;
+    font-size: 10px;
+    padding: 10px;
+  }
 }
