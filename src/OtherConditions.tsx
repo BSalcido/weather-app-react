@@ -3,9 +3,9 @@ import "./OtherConditions.css";
 
 type Props = {
   units: string;
-  feels_like: string;
-  humidity: string;
-  wind: string;
+  feels_like: number;
+  humidity: number;
+  wind: number;
 };
 
 const OtherConditions = ({ units, feels_like, humidity, wind }: Props) => {

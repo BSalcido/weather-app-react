@@ -1,14 +1,16 @@
 import React from "react";
 import "./Temperature.css";
 
-function Temperature(props) {
-  function handleUnitChange(event) {
+type Props = { units: string; temperature: number; toggleUnits(): void };
+
+const Temperature = ({ units, temperature, toggleUnits }: Props) => {
+  function handleUnitChange(event: React.MouseEvent<HTMLAnchorElement>) {
     event.preventDefault();
-    props.toggleUnits();
+    toggleUnits();
   }
 
   let currentUnit;
-  if (props.units === "metric") {
+  if (units === "metric") {
     currentUnit = (
       <span className="temperature__units ps-1">
         °C |
@@ -30,10 +32,10 @@ function Temperature(props) {
 
   return (
     <div className="temperature">
-      <span className="temperature__degrees">{props.temperature}</span>
+      <span className="temperature__degrees">{temperature}</span>
       {currentUnit}
     </div>
   );
-}
+};
 
 export default Temperature;
