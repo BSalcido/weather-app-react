@@ -1,8 +1,10 @@
 import React from "react";
 import "./FormattedDate.css";
 
-function FormattedDate(props) {
-  let timeInformation = new Date(props.timeStamp * 1000);
+type Props = { timeStamp: number };
+
+const FormattedDate = ({ timeStamp }: Props) => {
+  let timeInformation = new Date(timeStamp * 1000);
 
   // Get the date
   let date = timeInformation.getDate();
@@ -44,6 +46,6 @@ function FormattedDate(props) {
       <div className="formatted-date__time">Last updated: {onlyHour}</div>
     </div>
   );
-}
+};
 
 export default FormattedDate;
