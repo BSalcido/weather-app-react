@@ -1,8 +1,11 @@
 import React from "react";
+// @ts-ignore
 import ReactAnimatedWeather from "react-animated-weather";
 
-function WeatherIcon(props) {
-  const iconsMapping = {
+type Props = { code: string; size: number };
+
+const WeatherIcon = ({ code, size }: Props) => {
+  const iconsMapping: { [key: string]: string } = {
     "01n": "CLEAR_NIGHT",
     "01d": "CLEAR_DAY",
     "02n": "PARTLY_CLOUDY_NIGHT",
@@ -26,13 +29,13 @@ function WeatherIcon(props) {
   return (
     <div className="weather-icon pe-2">
       <ReactAnimatedWeather
-        icon={iconsMapping[props.code]}
+        icon={iconsMapping[code]}
         color={"#202124"}
-        size={props.size}
+        size={size}
         animate={true}
       />
     </div>
   );
-}
+};
 
 export default WeatherIcon;
