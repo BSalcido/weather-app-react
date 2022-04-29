@@ -87,7 +87,7 @@ function Weather() {
     );
   } else {
     callApi("Paris", units);
-    return "Loading...";
+    return <div>"Loading..."</div>;
   }
 }
 
