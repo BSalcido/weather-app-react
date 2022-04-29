@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import "./Weather.css";
 import Conditions from "./Conditions";
 import axios from "axios";
+import { Weather as WeatherProps, TemperatureResponse } from "./types";
 
 function Weather() {
   const [searchValue, setSearchValue] = useState("");
-  const [weather, setWeather] = useState({ ready: false });
+  const [weather, setWeather] = useState<WeatherProps | null>(null);
+  const [ready, setReady] = useState(false);
   const [units, setUnits] = useState("metric");
 
-  function callApi(city, newUnits) {
+  const size = 50;
+
+  function callApi(city: string, newUnits: string) {
     const key = "563dcfe0fb8bae48dd42b4a13d5480f2";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=${
       newUnits ? newUnits : units
@@ -17,14 +21,16 @@ function Weather() {
   }
 
   function toggleUnits() {
+    if (!weather) {
+      return;
+    }
     let newUnits = units === "metric" ? "imperial" : "metric";
     setUnits(newUnits);
     callApi(weather.city, newUnits);
   }
 
-  function showTemperature(response) {
+  function showTemperature(response: TemperatureResponse) {
     setWeather({
-      ready: true,
       city: response.data.name,
       icon: response.data.weather[0].icon,
       date: response.data.dt,
@@ -35,19 +41,20 @@ function Weather() {
       wind: Math.round(response.data.wind.speed),
       coordinates: response.data.coord,
     });
+    setReady(true);
   }
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    callApi(searchValue);
+    callApi(searchValue, units);
     setSearchValue("");
   }
 
-  function searchCity(event) {
+  function searchCity(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchValue(event.target.value);
   }
 
-  if (weather.ready) {
+  if (ready && weather) {
     return (
       <div className="Weather">
         <form onSubmit={handleSubmit}>
@@ -70,11 +77,16 @@ function Weather() {
             </div>
           </div>
         </form>
-        <Conditions weather={weather} units={units} toggleUnits={toggleUnits} />
+        <Conditions
+          weather={weather}
+          units={units}
+          toggleUnits={toggleUnits}
+          size={size}
+        />
       </div>
     );
   } else {
-    callApi("Paris");
+    callApi("Paris", units);
     return "Loading...";
   }
 }

@@ -14,7 +14,7 @@ type Props = {
   size: number;
 };
 
-const Conditions = ({ weather, units, toggleUnits }: Props) => {
+const Conditions = ({ weather, units, toggleUnits, size }: Props) => {
   if (weather === null) {
     return null;
   } else {
@@ -23,7 +23,7 @@ const Conditions = ({ weather, units, toggleUnits }: Props) => {
         <div className="row">
           <div className="col">
             <div className="d-inline-flex">
-              <WeatherIcon code={weather.icon} size={55} />
+              <WeatherIcon code={weather.icon} size={size} />
             </div>
             <div className="d-inline-flex">
               <Temperature
