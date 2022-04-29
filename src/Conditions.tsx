@@ -5,9 +5,17 @@ import Temperature from "./Temperature";
 import OtherConditions from "./OtherConditions";
 import WeatherIcon from "./WeatherIcon";
 import WeeklyForecast from "./WeeklyForecast";
+import { Weather } from "./types";
 
-function Conditions(props) {
-  if (props.weather === null) {
+type Props = {
+  weather: Weather;
+  units: string;
+  toggleUnits(): void;
+  size: number;
+};
+
+const Conditions = ({ weather, units, toggleUnits }: Props) => {
+  if (weather === null) {
     return null;
   } else {
     return (
@@ -15,39 +23,36 @@ function Conditions(props) {
         <div className="row">
           <div className="col">
             <div className="d-inline-flex">
-              <WeatherIcon code={props.weather.icon} />
+              <WeatherIcon code={weather.icon} size={55} />
             </div>
             <div className="d-inline-flex">
               <Temperature
-                temperature={props.weather.temperature}
-                units={props.units}
-                toggleUnits={props.toggleUnits}
+                temperature={weather.temperature}
+                units={units}
+                toggleUnits={toggleUnits}
               />
             </div>
             <OtherConditions
-              humidity={props.weather.humidity}
-              wind={props.weather.wind}
-              feels_like={props.weather.feels_like}
-              units={props.units}
+              humidity={weather.humidity}
+              wind={weather.wind}
+              feels_like={weather.feels_like}
+              units={units}
             />
           </div>
           <div className="col text-end">
-            <h1 className="conditions__city">{props.weather.city}</h1>
+            <h1 className="conditions__city">{weather.city}</h1>
 
             <div className="conditions__description text-capitalize">
-              {props.weather.description}
+              {weather.description}
             </div>
 
-            <FormattedDate timeStamp={props.weather.date} />
+            <FormattedDate timeStamp={weather.date} />
           </div>
         </div>
-        <WeeklyForecast
-          coordinates={props.weather.coordinates}
-          units={props.units}
-        />
+        <WeeklyForecast coordinates={weather.coordinates} units={units} />
       </div>
     );
   }
-}
+};
 
 export default Conditions;

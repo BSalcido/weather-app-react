@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./WeeklyForecast.css";
 import axios from "axios";
-import { ForecastData, WeeklyForecastResponse } from "./types";
+import { ForecastData, WeeklyForecastResponse, Coordinates } from "./types";
 
 import DayForecast from "./DayForecast";
 
-type Coordinates = { lat: string; lon: string };
 type Props = { units: string; coordinates: Coordinates };
 
 const WeeklyForecast = ({ units, coordinates }: Props) => {
