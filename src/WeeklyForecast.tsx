@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from "react";
 import "./WeeklyForecast.css";
 import axios from "axios";
+import { ForecastData, WeeklyForecastResponse } from "./types";
 
 import DayForecast from "./DayForecast";
 
-function WeeklyForecast(props) {
+type Coordinates = { lat: string; lon: string };
+type Props = { units: string; coordinates: Coordinates };
+
+const WeeklyForecast = ({ units, coordinates }: Props) => {
   const [loaded, setLoaded] = useState(false);
-  const [forecast, setForecast] = useState(null);
-  const units = props.units;
+  const [forecast, setForecast] = useState<ForecastData[] | null>(null);
+  const unit = units;
 
   useEffect(() => {
     setLoaded(false);
-  }, [props.coordinates]);
+  }, [coordinates]);
 
-  const lat = props.coordinates.lat;
-  const lon = props.coordinates.lon;
-  
-  function showWeeklyForecast(response) {
+  const lat = coordinates.lat;
+  const lon = coordinates.lon;
+
+  function showWeeklyForecast(response: WeeklyForecastResponse) {
     setForecast(response.data.daily);
     setLoaded(true);
   }
 
   function callWeeklyForecastApi() {
     const key = "563dcfe0fb8bae48dd42b4a13d5480f2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=${units}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}&units=${unit}`;
     axios.get(apiUrl).then(showWeeklyForecast);
   }
 
-  if (loaded) {
+  if (loaded && forecast) {
     return (
       <div className="weeklyForecast text-center">
         <div className="row">
@@ -49,6 +53,6 @@ function WeeklyForecast(props) {
     callWeeklyForecastApi();
     return null;
   }
-}
+};
 
 export default WeeklyForecast;

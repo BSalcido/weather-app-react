@@ -1,14 +1,7 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 import "./DayForecast.css";
-
-type Weather = { icon: string };
-
-type ForecastData = {
-  dt: number;
-  temp: { max: number; min: number };
-  weather: Weather[];
-};
+import { ForecastData } from "./types";
 
 type Props = { forecastData: ForecastData };
 
