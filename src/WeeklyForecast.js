@@ -15,6 +15,7 @@ function WeeklyForecast(props) {
 
   const lat = props.coordinates.lat;
   const lon = props.coordinates.lon;
+  
   function showWeeklyForecast(response) {
     setForecast(response.data.daily);
     setLoaded(true);
